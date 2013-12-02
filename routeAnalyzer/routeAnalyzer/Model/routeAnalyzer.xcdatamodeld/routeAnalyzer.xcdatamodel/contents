@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="GPSPoint" representedClassName="GPSPoint" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lat" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="lng" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="myRun" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Run" inverseName="myGPSPoints" inverseEntity="Run" syncable="YES"/>
+    </entity>
+    <entity name="Route" representedClassName="Route" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="myRuns" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Run" inverseName="myRoute" inverseEntity="Run" syncable="YES"/>
+    </entity>
+    <entity name="Run" representedClassName="Run" syncable="YES">
+        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="totalTime" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="unique" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="myGPSPoints" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="GPSPoint" inverseName="myRun" inverseEntity="GPSPoint" syncable="YES"/>
+        <relationship name="myRoute" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Route" inverseName="myRuns" inverseEntity="Route" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="GPSPoint" positionX="-326" positionY="-108" width="128" height="103"/>
+        <element name="Route" positionX="-911" positionY="-66" width="128" height="75"/>
+        <element name="Run" positionX="-623" positionY="-126" width="128" height="133"/>
+    </elements>
+</model>
