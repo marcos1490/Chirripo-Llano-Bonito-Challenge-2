@@ -11,6 +11,7 @@
 #import "Run.h"
 #import "RunsViewController.h"
 #import "DynamicRouteMapViewController.h"
+#import "ChartViewController.h"
 
 @interface StatsViewController ()
 @property Run *selectedRun;
@@ -22,7 +23,7 @@
 @implementation StatsViewController
 @synthesize managedObjectContext, currentRoute, routeRuns;
 @synthesize fastestRun, slowestRun, averageRun, runsNumber;
-@synthesize fastestCell,slowestestCell,showRunsCell;
+@synthesize fastestCell,slowestestCell,showRunsCell,showGraphCell;
 
 
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -100,6 +101,9 @@
         
         [showRunsCell setAccessoryType:UITableViewCellAccessoryNone];
         [showRunsCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        [showGraphCell setAccessoryType:UITableViewCellAccessoryNone];
+        [showGraphCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     } else {
 
         [fastestCell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
@@ -110,7 +114,12 @@
         
         [showRunsCell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         [showRunsCell setSelectionStyle:UITableViewCellSelectionStyleDefault];
+        
+        [showGraphCell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        [showGraphCell setSelectionStyle:UITableViewCellSelectionStyleDefault];
+
     }
+    
 
 }
 
@@ -182,6 +191,10 @@
         }
 		
 	}
+    else if (indexPath.row == 4){
+        [self performSegueWithIdentifier:@"show graph" sender:self];
+    
+    }
 
 }
 
@@ -199,6 +212,13 @@
 		RunsViewController *destination = segue.destinationViewController;
 		destination.currentRoute = self.currentRoute;
 	}
+    else if([segue.identifier isEqualToString:@"show graph"]){
+        
+        ChartViewController *destination = segue.destinationViewController;
+        destination.routeRuns = self.routeRuns;
+        destination.title = @"Bar Chart";
+    
+    }
 	else {
 		StaticRouteMapViewController *destination = segue.destinationViewController;
 		destination.title = self.mapViewTitle;

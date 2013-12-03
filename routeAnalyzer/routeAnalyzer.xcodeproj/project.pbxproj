@@ -39,6 +39,7 @@
 		2636FD0918400952000D326B /* RoutesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2636FD0818400952000D326B /* RoutesViewController.m */; };
 		265E9551184D41BD00B84F02 /* NSDate+TimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 265E954F184D41BD00B84F02 /* NSDate+TimeAgo.m */; };
 		265E9552184D41BD00B84F02 /* NSDateTimeAgo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 265E9550184D41BD00B84F02 /* NSDateTimeAgo.bundle */; };
+		7154A679184D6ABB00E678FD /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7154A678184D6ABB00E678FD /* ChartViewController.m */; };
 		71CA7E88184A4A870016CB30 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CA7E87184A4A870016CB30 /* GoogleMaps.framework */; };
 		71CA7E8C184A4B980016CB30 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CA7E8B184A4B980016CB30 /* StatsViewController.m */; };
 		71CA7E8F184A51AB0016CB30 /* Run.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CA7E8E184A51AB0016CB30 /* Run.m */; };
@@ -102,6 +103,8 @@
 		265E954E184D41BD00B84F02 /* NSDate+TimeAgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeAgo.h"; sourceTree = "<group>"; };
 		265E954F184D41BD00B84F02 /* NSDate+TimeAgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeAgo.m"; sourceTree = "<group>"; };
 		265E9550184D41BD00B84F02 /* NSDateTimeAgo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NSDateTimeAgo.bundle; sourceTree = "<group>"; };
+		7154A677184D6ABB00E678FD /* ChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChartViewController.h; path = Views/ChartViewController.h; sourceTree = "<group>"; };
+		7154A678184D6ABB00E678FD /* ChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChartViewController.m; path = Views/ChartViewController.m; sourceTree = "<group>"; };
 		71CA7E87184A4A870016CB30 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = routeAnalyzer/Libraries/GoogleMaps.framework; sourceTree = "<group>"; };
 		71CA7E8A184A4B980016CB30 /* StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsViewController.h; path = Views/StatsViewController.h; sourceTree = "<group>"; };
 		71CA7E8B184A4B980016CB30 /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatsViewController.m; path = Views/StatsViewController.m; sourceTree = "<group>"; };
@@ -201,7 +204,7 @@
 		2636FCAF183FF74C000D326B /* routeAnalyzer */ = {
 			isa = PBXGroup;
 			children = (
-				265E954D184D41BD00B84F02 /* NSDate-TimeAgo */,
+				7154A676184D5C4A00E678FD /* Libraries */,
 				2636FCB8183FF74C000D326B /* AppDelegate.h */,
 				2636FCB9183FF74C000D326B /* AppDelegate.m */,
 				2636FCBB183FF74C000D326B /* Main.storyboard */,
@@ -273,6 +276,8 @@
 				71E761B0184B15FD004C44DF /* DynamicRouteMapViewController.m */,
 				71FAE335184C33B00083D82A /* RunsViewController.h */,
 				71FAE336184C33B00083D82A /* RunsViewController.m */,
+				7154A677184D6ABB00E678FD /* ChartViewController.h */,
+				7154A678184D6ABB00E678FD /* ChartViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -286,6 +291,14 @@
 			);
 			name = "NSDate-TimeAgo";
 			path = "Libraries/NSDate-TimeAgo";
+			sourceTree = "<group>";
+		};
+		7154A676184D5C4A00E678FD /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				265E954D184D41BD00B84F02 /* NSDate-TimeAgo */,
+			);
+			name = Libraries;
 			sourceTree = "<group>";
 		};
 		71FAE334184BF0A60083D82A /* Images */ = {
@@ -411,6 +424,7 @@
 				2636FCBA183FF74C000D326B /* AppDelegate.m in Sources */,
 				71E761B1184B15FD004C44DF /* DynamicRouteMapViewController.m in Sources */,
 				2636FD0918400952000D326B /* RoutesViewController.m in Sources */,
+				7154A679184D6ABB00E678FD /* ChartViewController.m in Sources */,
 				71CA7E8F184A51AB0016CB30 /* Run.m in Sources */,
 				71FD07E0184A911D00950F32 /* StaticRouteMapViewController.m in Sources */,
 				26208C6F18439C7000CD6942 /* AddRouteViewController.m in Sources */,

@@ -23,6 +23,7 @@
 @property (nonatomic,retain) IBOutlet UITableViewCell *fastestCell;
 @property (nonatomic,retain) IBOutlet UITableViewCell *slowestestCell;
 @property (nonatomic,retain) IBOutlet UITableViewCell *showRunsCell;
+@property (nonatomic,retain) IBOutlet UITableViewCell *showGraphCell;
 
 
 

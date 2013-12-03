@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="XhX-u0-9HV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="XhX-u0-9HV">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Stats View Controller - Title-->
@@ -111,6 +111,23 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="graphCell" textLabel="UkR-uh-Fe0" style="IBUITableViewCellStyleDefault" id="fOE-hs-1sI">
+                                        <rect key="frame" x="0.0" y="240" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fOE-hs-1sI" id="EjG-Q2-0Ih">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Show Graph" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UkR-uh-Fe0">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -131,16 +148,18 @@
                         <outlet property="fastestCell" destination="QGv-qA-S61" id="SvY-Cj-XIE"/>
                         <outlet property="fastestRun" destination="N1p-z2-5wd" id="juv-9C-F6W"/>
                         <outlet property="runsNumber" destination="1gj-Nf-faw" id="Mcs-L3-LtX"/>
+                        <outlet property="showGraphCell" destination="fOE-hs-1sI" id="GJ7-2E-JNQ"/>
                         <outlet property="showRunsCell" destination="Kjs-vL-S95" id="flw-0v-XPj"/>
                         <outlet property="slowestRun" destination="QlW-2P-jHq" id="zWa-FY-Msz"/>
                         <outlet property="slowestestCell" destination="LGl-e7-B83" id="tB1-LO-3Mc"/>
                         <segue destination="hp0-N8-Uc8" kind="push" identifier="show map" id="TDF-71-XIY"/>
                         <segue destination="Dzf-hE-7QI" kind="push" identifier="detailed runs" id="f5v-N9-7xm"/>
+                        <segue destination="YWa-QX-GMz" kind="push" identifier="show graph" id="HbA-OB-tdT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gcj-K5-ccr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1160" y="529"/>
+            <point key="canvasLocation" x="1160" y="493"/>
         </scene>
         <!--Static Route Map View Controller - Route Detail-->
         <scene sceneID="4cd-wZ-pUz">
@@ -170,6 +189,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gnz-RM-6qY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2250" y="529"/>
+        </scene>
+        <!--Chart View Controller - Bar Chart-->
+        <scene sceneID="2Jq-9V-ddW">
+            <objects>
+                <viewController id="YWa-QX-GMz" customClass="ChartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LYN-nV-RqP"/>
+                        <viewControllerLayoutGuide type="bottom" id="MCq-ex-7wa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V2n-Ns-Zam">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G7a-hG-yF2">
+                                <rect key="frame" x="0.0" y="63" width="320" height="505"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                                <connections>
+                                    <outlet property="delegate" destination="YWa-QX-GMz" id="Pa5-dm-aF0"/>
+                                </connections>
+                            </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="A98-YC-Lkp">
+                                <rect key="frame" x="142" y="297" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bar Chart" id="g3J-rb-JSt"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="A98-YC-Lkp" id="1cx-Hv-Z79"/>
+                        <outlet property="webView" destination="G7a-hG-yF2" id="OAc-hZ-a1Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dmi-qn-RR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1160" y="1235"/>
         </scene>
         <!--Runs View Controller - Detailed Runs-->
         <scene sceneID="dma-AA-ic8">
@@ -303,7 +361,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="999 KM/H" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spa-9Y-iAl">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Speed N/A" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spa-9Y-iAl">
                                         <rect key="frame" x="11" y="28" width="85" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -447,6 +505,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="2Yu-RZ-5zt"/>
+        <segue reference="TDF-71-XIY"/>
     </inferredMetricsTieBreakers>
 </document>
