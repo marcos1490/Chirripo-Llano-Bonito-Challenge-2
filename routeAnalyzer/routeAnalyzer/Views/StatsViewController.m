@@ -129,6 +129,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (indexPath.row == 1) {
+        if ([routeRuns count] > 0) {
+            
+       
 		self.selectedRun = [routeRuns firstObject];
 		self.mapViewTitle = @"Fastest Run";
         
@@ -155,8 +158,12 @@
 			self.route = array;
 			[self performSegueWithIdentifier:@"show map" sender:self];
 		}
+        }
 	}
 	else if (indexPath.row == 2) {
+        if ([routeRuns count] > 0) {
+        
+        
 		self.selectedRun = [routeRuns lastObject];
 		self.mapViewTitle = @"Slowest Run";
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -182,6 +189,7 @@
 			self.route = array;
 			[self performSegueWithIdentifier:@"show map" sender:self];
 		}
+        }
 	}
 	else if (indexPath.row == 3) {
         self.selectedRun = nil;
@@ -192,7 +200,9 @@
 		
 	}
     else if (indexPath.row == 4){
-        [self performSegueWithIdentifier:@"show graph" sender:self];
+        if ([routeRuns count] > 0) {
+            [self performSegueWithIdentifier:@"show graph" sender:self];
+        }
     
     }
 
